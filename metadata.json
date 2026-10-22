@@ -1,0 +1,6 @@
+{
+  "name": "Gia Phả Họ Đặng - Cây Phả Hệ Tương Tác",
+  "description": "Ứng dụng tra cứu và trực quan hóa cây phả hệ dòng tộc Họ Đặng tương tác cao với phả đồ đa thế hệ, tìm kiếm, lọc nhánh và quan hệ xưng hô.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,112 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    background-color: #FAF4EB;
+    color: #4A2E12;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  h1, h2, h3, .font-serif-vi {
+    font-family: 'Merriweather', 'Times New Roman', serif;
+  }
+
+  .font-royal {
+    font-family: 'Cinzel', 'Merriweather', serif;
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F3EBDD;
+}
+::-webkit-scrollbar-thumb {
+  background: #D4A359;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #A32A22;
+}
+
+/* Subtle traditional Vietnamese lattice background pattern */
+.bg-lattice {
+  background-color: #FAF5EC;
+  background-image: radial-gradient(#D6C29E 0.75px, transparent 0.75px), radial-gradient(#D6C29E 0.75px, #FAF5EC 0.75px);
+  background-size: 30px 30px;
+  background-position: 0 0, 15px 15px;
+}
+
+.bg-lacquer-pattern {
+  background-color: #8C2117;
+  background-image: radial-gradient(circle at 50% 50%, #A32A22 0%, #761C13 100%);
+}
+
+/* Card hover animation */
+.card-shadow {
+  box-shadow: 0 4px 12px rgba(74, 46, 18, 0.12), 0 1px 3px rgba(74, 46, 18, 0.08);
+}
+.card-shadow-active {
+  box-shadow: 0 0 0 3px #F59E0B, 0 10px 25px -5px rgba(163, 42, 34, 0.35);
+}
+
+/* Mobile Animation Utilities */
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0.8;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleUp {
+  from {
+    transform: scale(0.95);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-slideUp {
+  animation: slideUp 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slideLeft {
+  animation: slideLeft 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.2s ease-out forwards;
+}
+
+.animate-scaleUp {
+  animation: scaleUp 0.22s ease-out forwards;
+}
