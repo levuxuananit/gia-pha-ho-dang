@@ -1,5 +1,13 @@
-import React from 'react';
-import { BookOpen, Calendar, Award, Compass, FileText, Image as ImageIcon, Users } from 'lucide-react';
+import React from "react";
+import {
+  BookOpen,
+  Calendar,
+  Award,
+  Compass,
+  FileText,
+  Image as ImageIcon,
+  Users,
+} from "lucide-react";
 
 interface HeaderNavProps {
   activeTab: string;
@@ -16,7 +24,7 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({
   onOpenKinship,
   onOpenGuide,
   onOpenEvents,
-  onOpenChronicle
+  onOpenChronicle,
 }) => {
   return (
     <header className="hidden md:block w-full bg-[#FAF5ED] border-b border-[#E8DCB8] sticky top-0 z-40 select-none shadow-sm">
@@ -25,11 +33,13 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({
         {/* Family Crest and Name */}
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[#A32A22] to-[#731912] flex items-center justify-center text-[#D4A359] shadow-md border-2 border-[#D4A359]/60">
-            <span className="font-serif-vi font-bold text-lg leading-none">Đ</span>
+            <span className="font-serif-vi font-bold text-lg leading-none">
+              Đ
+            </span>
           </div>
           <div>
             <h1 className="font-serif-vi font-extrabold text-xl sm:text-2xl tracking-wider text-[#4A2E12] uppercase flex items-center gap-2">
-              Gia Phả Họ Đặng - Đại Tộc
+              Gia Phả Họ Đặng - Đông Á - Đông Hưng - Thái Bình
             </h1>
             <p className="text-xs text-[#8C6D46] font-medium tracking-wide hidden sm:block">
               Nguồn cội lưu truyền • Phúc ấm muôn đời • Vạn thế trường tồn
@@ -40,16 +50,16 @@ export const HeaderNav: React.FC<HeaderNavProps> = ({
         {/* Navigation Tabs */}
         <nav className="flex items-center space-x-1 sm:space-x-2 md:space-x-5 text-sm font-medium">
           <button
-            onClick={() => setActiveTab('pha-do')}
+            onClick={() => setActiveTab("pha-do")}
             className={`px-3 py-1.5 rounded-md transition-all cursor-pointer ${
-              activeTab === 'pha-do'
-                ? 'text-[#A32A22] font-bold border-b-2 border-[#A32A22]'
-                : 'text-[#6B4F32] hover:text-[#A32A22] hover:bg-[#F3E8D3]'
+              activeTab === "pha-do"
+                ? "text-[#A32A22] font-bold border-b-2 border-[#A32A22]"
+                : "text-[#6B4F32] hover:text-[#A32A22] hover:bg-[#F3E8D3]"
             }`}
           >
             Phả đồ
           </button>
-          
+
           <button
             onClick={onOpenChronicle}
             className="px-3 py-1.5 rounded-md text-[#6B4F32] hover:text-[#A32A22] hover:bg-[#F3E8D3] transition-all cursor-pointer flex items-center gap-1.5"

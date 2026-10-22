@@ -1,5 +1,5 @@
-import React from 'react';
-import { Menu, Search, GitFork } from 'lucide-react';
+import React from "react";
+import { Menu, Search, GitFork } from "lucide-react";
 
 interface MobileHeaderProps {
   onOpenDrawer: () => void;
@@ -10,7 +10,7 @@ interface MobileHeaderProps {
 export const MobileHeader: React.FC<MobileHeaderProps> = ({
   onOpenDrawer,
   onOpenSearch,
-  isSearchActive
+  isSearchActive,
 }) => {
   return (
     <div className="md:hidden w-full bg-[#FAF5ED] border-b border-[#E8DCB8] sticky top-0 z-40 shadow-xs select-none">
@@ -18,11 +18,13 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
         {/* Family Brand Badge */}
         <div className="flex items-center gap-2">
           <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[#A32A22] to-[#731912] flex items-center justify-center text-[#D4A359] shadow-sm border border-[#D4A359]/70 shrink-0">
-            <span className="font-serif-vi font-bold text-sm leading-none">Đ</span>
+            <span className="font-serif-vi font-bold text-sm leading-none">
+              Đ
+            </span>
           </div>
           <div>
             <h1 className="font-serif-vi font-extrabold text-base tracking-wide text-[#4A2E12] uppercase leading-none">
-              Gia Phả Họ Đặng
+              Gia Phả Họ Đặng - Đông Á - Đông Hưng - Thái Bình
             </h1>
             <p className="text-[10px] text-[#8C6D46] font-medium tracking-tight mt-0.5">
               Đại Tộc • Cây phả hệ số
@@ -38,8 +40,8 @@ export const MobileHeader: React.FC<MobileHeaderProps> = ({
             aria-label="Tìm nhanh"
             className={`w-9 h-9 rounded-lg flex items-center justify-center transition-colors cursor-pointer ${
               isSearchActive
-                ? 'bg-[#A32A22] text-white shadow-sm'
-                : 'bg-[#FFFDF9] hover:bg-[#F3EADB] text-[#59391A] border border-[#D4A359]'
+                ? "bg-[#A32A22] text-white shadow-sm"
+                : "bg-[#FFFDF9] hover:bg-[#F3EADB] text-[#59391A] border border-[#D4A359]"
             }`}
           >
             <Search className="w-4 h-4" />

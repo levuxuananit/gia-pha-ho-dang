@@ -3,29 +3,29 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import React, { useState, useMemo } from 'react';
-import { FamilyMember, Spouse, TreeFilter, ViewMode } from './types/family';
-import { INITIAL_FAMILY_MEMBERS } from './data/mockFamilyTreeData';
-import { getAncestorIds, getDescendantIds } from './utils/treeLayout';
-import { HeaderNav } from './components/family-tree/HeaderNav';
-import { MobileHeader } from './components/family-tree/MobileHeader';
-import { MobileDrawer } from './components/family-tree/MobileDrawer';
-import { ControlPanel } from './components/ControlPanel';
-import { FamilyTreeCanvas } from './components/FamilyTreeCanvas';
-import { DirectoryView } from './components/family-tree/DirectoryView';
-import { MemberDetailModal } from './components/MemberDetailModal';
-import { FullProfileModal } from './components/family-tree/FullProfileModal';
-import { KinshipModal } from './components/family-tree/KinshipModal';
-import { GuideModal } from './components/family-tree/GuideModal';
-import { ChronicleModal } from './components/family-tree/ChronicleModal';
-import { EventsModal } from './components/family-tree/EventsModal';
+import React, { useState, useMemo } from "react";
+import { FamilyMember, Spouse, TreeFilter, ViewMode } from "./types/family";
+import { INITIAL_FAMILY_MEMBERS } from "./data/mockFamilyTreeData";
+import { getAncestorIds, getDescendantIds } from "./utils/treeLayout";
+import { HeaderNav } from "./components/family-tree/HeaderNav";
+import { MobileHeader } from "./components/family-tree/MobileHeader";
+import { MobileDrawer } from "./components/family-tree/MobileDrawer";
+import { ControlPanel } from "./components/ControlPanel";
+import { FamilyTreeCanvas } from "./components/FamilyTreeCanvas";
+import { DirectoryView } from "./components/family-tree/DirectoryView";
+import { MemberDetailModal } from "./components/MemberDetailModal";
+import { FullProfileModal } from "./components/family-tree/FullProfileModal";
+import { KinshipModal } from "./components/family-tree/KinshipModal";
+import { GuideModal } from "./components/family-tree/GuideModal";
+import { ChronicleModal } from "./components/family-tree/ChronicleModal";
+import { EventsModal } from "./components/family-tree/EventsModal";
 
 export default function App() {
   const [allMembers] = useState<FamilyMember[]>(INITIAL_FAMILY_MEMBERS);
 
   // App Navigation & View Modes
-  const [activeTab, setActiveTab] = useState<string>('pha-do');
-  const [viewMode, setViewMode] = useState<ViewMode>('tree');
+  const [activeTab, setActiveTab] = useState<string>("pha-do");
+  const [viewMode, setViewMode] = useState<ViewMode>("tree");
 
   // Mobile Drawer & Search State
   const [isMobileDrawerOpen, setIsMobileDrawerOpen] = useState(false);
@@ -36,18 +36,23 @@ export default function App() {
     generationLimit: 0,
     hideSpouses: false,
     showSpouseToChildLine: false,
-    searchQuery: '',
+    searchQuery: "",
     searchGeneration: 0,
-    selectedBranch: 'all'
+    selectedBranch: "all",
   });
 
   // Modal & Selection State
-  const [selectedMember, setSelectedMember] = useState<FamilyMember | null>(null);
+  const [selectedMember, setSelectedMember] = useState<FamilyMember | null>(
+    null,
+  );
   const [selectedSpouse, setSelectedSpouse] = useState<Spouse | null>(null);
-  const [fullProfileMember, setFullProfileMember] = useState<FamilyMember | null>(null);
+  const [fullProfileMember, setFullProfileMember] =
+    useState<FamilyMember | null>(null);
 
   // Highlighted Lineage Paths
-  const [highlightedMemberIds, setHighlightedMemberIds] = useState<Set<string>>(new Set());
+  const [highlightedMemberIds, setHighlightedMemberIds] = useState<Set<string>>(
+    new Set(),
+  );
 
   // Ancillary Modals
   const [isKinshipOpen, setIsKinshipOpen] = useState(false);
@@ -58,13 +63,13 @@ export default function App() {
   // Map for fast lookups
   const memberMap = useMemo(() => {
     const map = new Map<string, FamilyMember>();
-    allMembers.forEach(m => map.set(m.id, m));
+    allMembers.forEach((m) => map.set(m.id, m));
     return map;
   }, [allMembers]);
 
   // Handlers
   const handleFilterChange = (newFilters: Partial<TreeFilter>) => {
-    setFilters(prev => ({ ...prev, ...newFilters }));
+    setFilters((prev) => ({ ...prev, ...newFilters }));
   };
 
   const handleSelectMember = (member: FamilyMember) => {
@@ -98,7 +103,7 @@ export default function App() {
 
   // Jump from Directory View into Tree View & center member
   const handleLocateOnTree = (member: FamilyMember) => {
-    setViewMode('tree');
+    setViewMode("tree");
     setSelectedMember(member);
     handleHighlightAncestors(member.id);
   };
@@ -118,7 +123,7 @@ export default function App() {
       {/* 2. Mobile Header with Hamburger Menu & Quick Search (< 768px) */}
       <MobileHeader
         onOpenDrawer={() => setIsMobileDrawerOpen(true)}
-        onOpenSearch={() => setIsMobileSearchOpen(prev => !prev)}
+        onOpenSearch={() => setIsMobileSearchOpen((prev) => !prev)}
         isSearchActive={isMobileSearchOpen}
       />
 
@@ -152,7 +157,7 @@ export default function App() {
         />
 
         {/* View Switcher: Interactive Family Tree Canvas vs Directory Table */}
-        {viewMode === 'tree' ? (
+        {viewMode === "tree" ? (
           <FamilyTreeCanvas
             allMembers={allMembers}
             filters={filters}
@@ -178,10 +183,10 @@ export default function App() {
       <footer className="w-full bg-[#F3EADB] border-t border-[#E2D4BC] py-5 sm:py-6 text-center text-xs text-[#705437]">
         <div className="max-w-7xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-2.5">
           <div className="font-serif-vi font-bold text-[#4A2E12]">
-            BAN LIÊN LẠC GIA TỘC HỌ ĐẶNG • ĐÔNG HƯNG - THÁI BÌNH
+            BAN LIÊN LẠC GIA TỘC HỌ ĐẶNG • ĐÔNG Á, ĐÔNG HƯNG, THÁI BÌNH
           </div>
           <div className="text-[11px] sm:text-xs">
-            Hệ thống mã phả hệ quy chuẩn D-C-N • Khởi lập từ Cụ Thủy tổ Đặng Đình Lĩnh (1740)
+            Hệ thống phả hệ quy chuẩn dòng họ
           </div>
           <div className="text-[10px] sm:text-[11px] text-[#8C6D46]">
             569 thành viên • 12 thế hệ nối truyền
@@ -229,9 +234,7 @@ export default function App() {
       )}
 
       {/* 4. Guide Modal */}
-      {isGuideOpen && (
-        <GuideModal onClose={() => setIsGuideOpen(false)} />
-      )}
+      {isGuideOpen && <GuideModal onClose={() => setIsGuideOpen(false)} />}
 
       {/* 5. Chronicle Modal */}
       {isChronicleOpen && (
@@ -239,9 +242,7 @@ export default function App() {
       )}
 
       {/* 6. Events & Anniversaries Modal */}
-      {isEventsOpen && (
-        <EventsModal onClose={() => setIsEventsOpen(false)} />
-      )}
+      {isEventsOpen && <EventsModal onClose={() => setIsEventsOpen(false)} />}
     </div>
   );
 }
